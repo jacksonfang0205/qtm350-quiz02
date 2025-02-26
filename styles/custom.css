@@ -1,0 +1,52 @@
+body {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    background-color: skyblue;
+    color: #333; 
+}
+
+
+.navbar {
+    background-color: rgb(47, 75, 255) !important; 
+}
+
+.navbar a {
+    color: white !important;
+    font-weight: bold;
+}
+
+/* Customize page headings   */
+h1, h2, h3 {
+    color: #5c0080;
+}
+
+/* Style links */
+a {
+    color: #cc0092;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Add padding to content */
+.content {
+    padding: 20px;
+}
+
+/* Style tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th {
+    background-color: #cc009c;
+    color: white;
+}
