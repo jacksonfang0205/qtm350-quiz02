@@ -1,0 +1,27 @@
+project:
+  type: website
+  output-dir: docs
+website:
+  title: "qtm350-quiz02"
+  repo-url: https://jacksonfang0205.github.io/qtm350-quiz02/
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: life-gdp.qmd
+        text: Life Expectancy vs GDP
+      - href: life-population.qmd
+        text: Life Expectancy vs Population
+      - href: country.qmd
+        text: Country Analysis
+      - about.qmd
+
+format:
+  html:
+    theme:
+      - solar
+    css: styles.css
+    toc: true
+
+
+

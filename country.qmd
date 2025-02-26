@@ -1,0 +1,40 @@
+---
+title: "Country Analysis"
+format: html
+---
+#### This page will use graphs to show the life expectancy, gdp, and population changes along years in United States
+
+```{python}
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df = pd.read_csv("gapminder.csv")
+
+us = df[df['country'] == 'United States']
+
+fig, axes = plt.subplots(3, 1, figsize=(8, 15))
+
+# 1. Life Expectancy over Years
+sns.lineplot(data=us, x="year", y="life_expectancy", marker="o", ax=axes[0], color="blue")
+axes[0].set_title("Life Expectancy Over Time in the U.S.")
+axes[0].set_xlabel("Year")
+axes[0].set_ylabel("Life Expectancy (Years)")
+
+# 2. GDP per Capita over Years
+sns.lineplot(data=us, x="year", y="gdp_per_capita", marker="s", ax=axes[1], color="green")
+axes[1].set_title("GDP per Capita Over Time in the U.S.")
+axes[1].set_xlabel("Year")
+axes[1].set_ylabel("GDP per Capita (USD)")
+
+# 3. Population over Years
+sns.lineplot(data=us, x="year", y="population_millions", marker="^", ax=axes[2], color="red")
+axes[2].set_title("Population Growth Over Time in the U.S.")
+axes[2].set_xlabel("Year")
+axes[2].set_ylabel("Population")
+
+# Adjust layout
+plt.tight_layout()
+plt.show()
+
+```

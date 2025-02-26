@@ -1,0 +1,15 @@
+---
+title: "QTM350 Quiz 02 - Data Analysis on Gapminder Dataset"
+---
+
+This is a Data Analysis report for Gapminder Dataset. 
+The link to the Gapminder Dataset is [Gapminder](https://cran.r-project.org/web/packages/gapminder/index.html)
+
+To see my analysis, click the following links
+
+
+- [Life Expectancy and GDP per Capita](life-gdp.qmd)
+
+- [Life Expectancy and Population](life-population.qmd)
+
+- [Country Analysis](country.qmd)

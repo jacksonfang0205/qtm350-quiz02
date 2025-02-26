@@ -1,0 +1,51 @@
+[
+  {
+    "objectID": "create-dataset.html",
+    "href": "create-dataset.html",
+    "title": "Create the Gapminder dataset",
+    "section": "",
+    "text": "# Import necessary libraries\nimport pandas as pd\nfrom gapminder import gapminder\n\n# Rename 'lifeExp' to 'life_expectancy' and 'gdpPercap' to 'gdp_per_capita'\ngapminder = gapminder.rename(columns={'lifeExp': 'life_expectancy',\n                                      'pop': 'population_millions', \n                                      'gdpPercap': 'gdp_per_capita'})\n\n# Convert population to millions\ngapminder['population_millions'] = gapminder['population_millions'] / 1_000_000\n\n# Create a new pandas DataFrame from the modified gapminder data\ngapminder_df = pd.DataFrame(gapminder)\n\n# Save the DataFrame as a CSV file\ngapminder_df.to_csv('gapminder.csv', index=False)\n\n# Print the first 3 rows of the DataFrame\nprint(gapminder_df.head(3))\n\n       country continent  year  life_expectancy  population_millions  \\\n0  Afghanistan      Asia  1952           28.801             8.425333   \n1  Afghanistan      Asia  1957           30.332             9.240934   \n2  Afghanistan      Asia  1962           31.997            10.267083   \n\n   gdp_per_capita  \n0      779.445314  \n1      820.853030  \n2      853.100710"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "QTM350 Quiz 02 - Data Analysis on Gapminder Dataset",
+    "section": "",
+    "text": "This is a Data Analysis report for Gapminder Dataset. The link to the Gapminder Dataset is Gapminder\nTo see my analysis, click the following links\n\nLife Expectancy and GDP per Capita\nLife Expectancy and Population\nCountry Analysis"
+  },
+  {
+    "objectID": "country.html",
+    "href": "country.html",
+    "title": "Country Analysis",
+    "section": "",
+    "text": "This page will use graphs to show the life expectancy, gdp, and population changes along years in United States\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\ndf = pd.read_csv(\"gapminder.csv\")\n\nus = df[df['country'] == 'United States']\n\nfig, axes = plt.subplots(3, 1, figsize=(8, 15))\n\n# 1. Life Expectancy over Years\nsns.lineplot(data=us, x=\"year\", y=\"life_expectancy\", marker=\"o\", ax=axes[0], color=\"blue\")\naxes[0].set_title(\"Life Expectancy Over Time in the U.S.\")\naxes[0].set_xlabel(\"Year\")\naxes[0].set_ylabel(\"Life Expectancy (Years)\")\n\n# 2. GDP per Capita over Years\nsns.lineplot(data=us, x=\"year\", y=\"gdp_per_capita\", marker=\"s\", ax=axes[1], color=\"green\")\naxes[1].set_title(\"GDP per Capita Over Time in the U.S.\")\naxes[1].set_xlabel(\"Year\")\naxes[1].set_ylabel(\"GDP per Capita (USD)\")\n\n# 3. Population over Years\nsns.lineplot(data=us, x=\"year\", y=\"population_millions\", marker=\"^\", ax=axes[2], color=\"red\")\naxes[2].set_title(\"Population Growth Over Time in the U.S.\")\naxes[2].set_xlabel(\"Year\")\naxes[2].set_ylabel(\"Population\")\n\n# Adjust layout\nplt.tight_layout()\nplt.show()\n\n/Users/jackson/anaconda3/lib/python3.11/site-packages/seaborn/_oldcore.py:1119: FutureWarning:\n\nuse_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.\n\n/Users/jackson/anaconda3/lib/python3.11/site-packages/seaborn/_oldcore.py:1119: FutureWarning:\n\nuse_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.\n\n/Users/jackson/anaconda3/lib/python3.11/site-packages/seaborn/_oldcore.py:1119: FutureWarning:\n\nuse_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.\n\n/Users/jackson/anaconda3/lib/python3.11/site-packages/seaborn/_oldcore.py:1119: FutureWarning:\n\nuse_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.\n\n/Users/jackson/anaconda3/lib/python3.11/site-packages/seaborn/_oldcore.py:1119: FutureWarning:\n\nuse_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.\n\n/Users/jackson/anaconda3/lib/python3.11/site-packages/seaborn/_oldcore.py:1119: FutureWarning:\n\nuse_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead."
+  },
+  {
+    "objectID": "life-gdp.html",
+    "href": "life-gdp.html",
+    "title": "Life Expectancy and GDP per Capita",
+    "section": "",
+    "text": "This page will use a graph to show the relationship between life expectancy and gdp per capita\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\ndf = pd.read_csv(\"gapminder.csv\")  \n\n\nplt.figure(figsize=(10,6))\nsns.scatterplot(data=df, x=\"gdp_per_capita\", y=\"life_expectancy\", alpha=0.7)\n\nplt.title(\"Relationship Between Life Expectancy and GDP per Capita\")\nplt.xlabel(\"GDP per Capita\")\nplt.ylabel(\"Life Expectancy\")\nplt.grid(True)\n\n\nplt.show()"
+  },
+  {
+    "objectID": "quiz02initialize.html",
+    "href": "quiz02initialize.html",
+    "title": "qtm350-quiz02",
+    "section": "",
+    "text": "cd /Users/jackson/Documents/emory/emory2025Spring/QTM350\n\n/Users/jackson/Documents/emory/emory2025Spring/QTM350\n\n\n\n!git clone https://github.com/jacksonfang0205/qtm350-quiz02.git\n\nCloning into 'qtm350-quiz02'...\nremote: Enumerating objects: 5, done.\nremote: Counting objects: 100% (5/5), done.\nremote: Compressing objects: 100% (5/5), done.\nremote: Total 5 (delta 0), reused 5 (delta 0), pack-reused 0 (from 0)\nReceiving objects: 100% (5/5), 32.90 KiB | 1.73 MiB/s, done.\n\n\n\ncd qtm350-quiz02/\n\n/Users/jackson/Documents/emory/emory2025Spring/QTM350/qtm350-quiz02\n\n\n\n!quarto create-project . --type website\n\nCreating project at /Users/jackson/Documents/emory/emory2025Spring/QTM350/qtm350-quiz02:\n  - Created _quarto.yml\n  - Created .gitignore\n  - Created index.qmd\n  - Created about.qmd\n  - Created styles.css\n\n\n\n!mkdir docs"
+  },
+  {
+    "objectID": "life-population.html",
+    "href": "life-population.html",
+    "title": "Life Expectancy and Population",
+    "section": "",
+    "text": "This page will use a graph to show the relationship between life expectancy and population\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\ndf = pd.read_csv(\"gapminder.csv\")  \n\n\nplt.figure(figsize=(10,6))\nsns.scatterplot(data=df, x=\"population_millions\", y=\"life_expectancy\", alpha=0.7)\n\nplt.title(\"Relationship Between Life Expectancy and Population\")\nplt.xlabel(\"GDP per Capita\")\nplt.ylabel(\"Life Expectancy\")\nplt.grid(True)\n\n\nplt.show()"
+  }
+]

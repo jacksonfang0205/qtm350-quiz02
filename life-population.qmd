@@ -1,0 +1,25 @@
+---
+title: "Life Expectancy and Population"
+format: html
+---
+#### This page will use a graph to show the relationship between life expectancy and population
+
+```{python}
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df = pd.read_csv("gapminder.csv")  
+
+
+plt.figure(figsize=(10,6))
+sns.scatterplot(data=df, x="population_millions", y="life_expectancy", alpha=0.7)
+
+plt.title("Relationship Between Life Expectancy and Population")
+plt.xlabel("GDP per Capita")
+plt.ylabel("Life Expectancy")
+plt.grid(True)
+
+
+plt.show()
+```
